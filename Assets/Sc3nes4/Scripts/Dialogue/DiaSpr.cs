@@ -19,6 +19,7 @@ public class DiaSpr : MonoBehaviour
     [SerializeField] private SpriteRenderer sprite_NameBox;
     [SerializeField] private Text txt_Name;
     [SerializeField] private Text txt_Dialogue;
+    [SerializeField] private Text txt_Title;
 
     [SerializeField] private SpriteRenderer sprite_BackImage;
 
@@ -39,14 +40,12 @@ public class DiaSpr : MonoBehaviour
 
     private void ONOFF(bool _flag)
     {
-       // sprite_DialogueBox.gameObject.SetActive(_flag);
         sprite_StandingCG.gameObject.SetActive(_flag);
         sprite_BackImage.gameObject.SetActive(!_flag);
         button_Skip.gameObject.SetActive(_flag);
         button_SceneChange.gameObject.SetActive(!_flag);
-        //sprite_NameBox.gameObject.SetActive(_flag);
-        //txt_Dialogue.gameObject.SetActive(_flag);
-        //txt_Name.gameObject.SetActive(_flag);
+        txt_Title.gameObject.SetActive(!_flag);
+
         isDialogue = _flag;
     }
 

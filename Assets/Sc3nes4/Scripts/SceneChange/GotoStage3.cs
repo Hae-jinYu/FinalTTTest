@@ -7,6 +7,6 @@ public class GotoStage3 : MonoBehaviour
 {
     public void SceneChange()
     {
-        SceneManager.LoadScene("Opening"); // 씬 이름 수정하기
+        SceneManager.LoadScene("GameStart"); // 씬 이름 수정하기
     }
 }

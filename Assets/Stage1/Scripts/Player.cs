@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
         GetInput();
         Move();
         Turn();
-        Interation();
+        Interaction();
         Swap();
         Attack();
         
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
             fireDelay = 0;
         }
     }
-    void Interation()
+    void Interaction()
     {
         if(iDown && nearObject!=null)
         {

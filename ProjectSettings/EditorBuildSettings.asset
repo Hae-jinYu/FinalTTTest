@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Sc3nes4/Scenes/GameStart.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Sc3nes4/Scenes/Opening.unity
+    guid: 29f9a1b5bec6731418d5dccfa77812a7
+  - enabled: 1
+    path: Assets/Sc3nes4/Scenes/St1After.unity
+    guid: b9b14d5e189b88041a49c2f82db300ad
+  - enabled: 1
+    path: Assets/Sc3nes4/Scenes/St2After.unity
+    guid: 7841cd16eb1605c44a3446f46d5488f0
+  - enabled: 1
+    path: Assets/Sc3nes4/Scenes/St3After.unity
+    guid: aca574e5edd1c9140ab7175f1eb54664
+  - enabled: 1
+    path: Assets/Sc3nes4/Scenes/Ending.unity
+    guid: 3f50338d4a01f0f4b8406cf06c9baad0
   m_configObjects: {}
