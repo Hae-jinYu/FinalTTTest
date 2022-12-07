@@ -782,7 +782,7 @@ ModelImporter:
     feetSpacing: 0
     globalScale: 0.01
     rootMotionBoneName: 
-    hasTranslationDoF: 1
+    hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}

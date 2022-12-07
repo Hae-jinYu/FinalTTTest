@@ -1,62 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-
 
 public class Enemy : MonoBehaviour
 {
-    public Transform target;//플레이어
+
+    public int maxHealth;
+    public int curHealth;
+    public BoxCollider meleeArea;
+    public bool isAttack;
+    public GameManager manager;
+
     Rigidbody rigid;
     BoxCollider boxCollider;
     Material mat;
-    NavMeshAgent nav;
-    Animator anim;
-    public bool isChase;
-    public bool isAttack;
 
-    public int damage=1;
-
-    // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-		boxCollider = GetComponent<BoxCollider>();
-		mat = GetComponentInChildren<MeshRenderer>().material;
-        nav = GetComponent<NavMeshAgent>();
-        anim=GetComponentInChildren<Animator>();
-
-        Invoke("ChaseStart", 2);//2초 뒤에 추적 시작
-    }
-
-    void OnTriggerEnter(Collider other) //플레이어 만나면
-	{
-        if(other.tag=="Player")
-		{
-            Player player = other.GetComponent<Player>();//플레이어 스크립트 가져옴
-            player.health -= damage;
-
-            Debug.Log(player.health);
-        }
-	}
-    // Update is called once per frame
-
-    void ChaseStart()
-	{
-        isChase = true;
-        anim.SetBool("isMove", true);
-	}
-    void AttackStart()
-	{
-        isAttack = true;
-        anim.SetBool("isAttack", true);
+        boxCollider = GetComponent<BoxCollider>();
+        mat = GetComponentInChildren<MeshRenderer>().material;
 
     }
-    void Update()
+
+    IEnumerator Attack()
     {
-        if (isChase)
+        isAttack = true;
+        yield return null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag =="Melee")
         {
-            nav.SetDestination(target.position);
+            Weapon weapon = other.GetComponent<Weapon>();
+            curHealth -= weapon.damage;
+            StartCoroutine(OnDamage());
+            Debug.Log("Melee : " + curHealth);
         }
+    }
+
+    IEnumerator OnDamage()
+    {
+        
+        yield return new WaitForSeconds(0.1f);
+
+        if(curHealth>0)
+        {
+            mat.color = Color.red;
+        }
+        else
+        {
+            mat.color = Color.gray;
+            Destroy(gameObject, 0.2f);
+            manager.enemywlof--;
+        }
+
     }
 }
