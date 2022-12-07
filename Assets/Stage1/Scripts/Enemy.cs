@@ -48,13 +48,20 @@ public class Enemy : MonoBehaviour
         if(curHealth>0)
         {
             mat.color = Color.red;
+            manager.enemywlof = manager.enemywlof - 1;
         }
         else
         {
             mat.color = Color.gray;
             Destroy(gameObject, 0.2f);
-           
+
+            
+
         }
 
+        
+       
+
+        
     }
 }

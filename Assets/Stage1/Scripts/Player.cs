@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
     {
         hAxis = Input.GetAxisRaw("Horizontal");
         vAxis = Input.GetAxisRaw("Vertical");
-        iDown = Input.GetButtonDown("Interation");
+        iDown = Input.GetButtonDown("Interaction");
         sDown = Input.GetButtonDown("Swap");
         fDown = Input.GetButtonDown("Fire1");
     }
@@ -161,7 +161,7 @@ public class Player : MonoBehaviour
 
     void OnDie()
     {
-        
+        anim.SetTrigger("doDie");
         isDead = true;
         manager.GameOver();
     }

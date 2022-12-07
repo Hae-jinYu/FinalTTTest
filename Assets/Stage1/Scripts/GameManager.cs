@@ -20,12 +20,11 @@ public class GameManager : MonoBehaviour
     public Image weaponImg;
     public Image weaponImg1;
 
-  public void NextstageStart()
+    public void NextstageStart()
     {
-       // ScenManager.LoadScene();
+        //SceneManager.LoadScene();
     }
 
-   
     public void stageEnd()
     {
         stage++;
@@ -38,6 +37,10 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void Menu()
     {
         GamePanel.SetActive(false);
@@ -48,11 +51,6 @@ public class GameManager : MonoBehaviour
     {
         Menu();
     }
-
-    public void Restart()
-    {
-        SceneManager.LoadScene(0);
-    }
     private void LateUpdate()
     {
         
@@ -61,6 +59,5 @@ public class GameManager : MonoBehaviour
         weaponImg.color = new Color(1, 1, 1, player.hasItem[0] ? 1 : 0);
         weaponImg1.color = new Color(1, 1, 1, player.hasItem[6] ? 1 : 0);
         enemytxt.text = enemywlof.ToString();
-        
     }
 }
